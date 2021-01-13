@@ -1,0 +1,16 @@
+{
+  "name": "apoptosis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "start": "serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Watkins-Hughes",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^11.3.2",
+    "svg-react-loader": "^0.4.6"
+  }
+}
