@@ -36,7 +36,6 @@ for (let i = 0; i <= 20; i++) {
     scale: randRange(0.1, 1),
     alpha: randRange(0.5, 1),
     rotation: randRange(0, 180),
-    color: colors[Math.floor(Math.random() * colors.length)],
     shape: shapes[Math.floor(Math.random() * shapes.length)]
   };
   images.push(image);
