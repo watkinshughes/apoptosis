@@ -1,8 +1,5 @@
-const canvas = document.getElementById("canvas");
-const shape1 = document.getElementById("shape1");
-const shape2 = document.getElementById("shape2");
-
-const shapes = [shape1, shape2];
+const container = document.getElementById("container");
+const shapes = Array.from(document.querySelectorAll("svg"));
 
 const colors = [
   "#84372D",
@@ -28,15 +25,12 @@ const randRange = (min, max) => {
   return randomNum;
 };
 
-canvas.width = 1200;
-canvas.height = 1200;
-
 const images = [];
-for (let i = 0; i <= 5; i++) {
+for (let i = 0; i <= 50; i++) {
   const image = {
     xlocation: randRange(15, 1000),
     ylocation: randRange(15, 1000),
-    scale: randRange(5, 400),
+    scale: randRange(0.1, 1),
     alpha: randRange(25, 100) * 0.1,
     rotation: randRange(0, 180),
     color: colors[Math.floor(Math.random() * colors.length)],
@@ -44,8 +38,14 @@ for (let i = 0; i <= 5; i++) {
   };
   images.push(image);
 }
-debugger;
-images.map(item => {
-  const container = document.getElementById("container");
+
+images.map((item, index) => {
+  item.shape.style = `left: ${item.xlocation};
+    top: ${item.ylocation};
+    opacity: ${item.alpha};
+    fill: ${item.color};
+    transform: scale(${item.scale});
+    transform: rotate(${item.rotation})`;
+  item.shape.id = `shape-${index}`;
   container.appendChild(item.shape);
 });
