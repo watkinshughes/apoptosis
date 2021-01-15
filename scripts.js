@@ -2,6 +2,7 @@ const container = document.getElementById("container");
 const shapes = Array.from(document.querySelectorAll("svg"));
 
 const colors = [
+  "#FFFFFF",
   "#84372D",
   "#70766F",
   "#868980",
@@ -26,12 +27,12 @@ const randRange = (min, max) => {
 };
 
 const images = [];
-for (let i = 0; i <= 50; i++) {
+for (let i = 0; i <= 10; i++) {
   const image = {
     xlocation: randRange(15, 1000),
     ylocation: randRange(15, 1000),
     scale: randRange(0.1, 1),
-    alpha: randRange(25, 100) * 0.1,
+    alpha: randRange(0.5, 1),
     rotation: randRange(0, 180),
     color: colors[Math.floor(Math.random() * colors.length)],
     shape: shapes[Math.floor(Math.random() * shapes.length)]
@@ -45,7 +46,8 @@ images.map((item, index) => {
     opacity: ${item.alpha};
     fill: ${item.color};
     transform: scale(${item.scale});
-    transform: rotate(${item.rotation})`;
+    transform: rotate(${item.rotation})
+    fill: ${item.color} !important`;
   item.shape.id = `shape-${index}`;
   container.appendChild(item.shape);
 });
